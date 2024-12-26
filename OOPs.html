@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+     .div{
+        border: 1px solid red;
+        margin:0px 35%;
+       text-align: center;
+       height: 200px;
+     }
+     video{
+        height: 200px;
+        object-fit: cover;
+     }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <video controls>
+            <!-- <source src= "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4" type="video/mp4"/> -->
+        </video>
+    </div>
+    <!-- <div></div> -->
+    <button class="play">Play</button>
+    <button class="pause">Pause</button>
+    <button class="seek">Seek</button>
+    <script>
+// 1.) Create a ShoppingCart class to manage items. Each item should be an instance of
+// an Item class.
+// Tasks:
+// ➢ Add methods to add, remove, and calculate the total cost of items.
+// ➢ Include discounts as a feature and ensure encapsulation of cart data.
+// *******Solution*******
+// class Itemclass{
+//     constructor(name,price){
+//         this.name= name;
+//         this.price = price;
+//     }
+// }
+// class ShoppingCart{
+//     constructor(){
+//         this.item = []
+//     }
+//    add(obj){
+//        this.item.push(obj)
+//    }
+//    remove(n){
+//      this.item = this.item.filter((ele,i)=>{
+//       if(i!=n){
+//        return ele
+//       }
+//      })
+//    }
+// get totoalCost(){
+//     return this.item.reduce((acc,ele)=>acc+ele.price,0)
+//    }
+// static discount(a){
+//       return a*20/100
+// }
+// }
+// let obj1 = new Itemclass("Mango",200)
+// let obj2 = new Itemclass("Grapes",100)
+// let shop = new ShoppingCart()
+// shop.add(obj1)
+// shop.add(obj2)
+// // shop.remove(1)
+// console.log(ShoppingCart.discount(shop.totoalCost))
+
+/////////////////////////////////////////////////////////////////////////////
+
+// 2.) Create a Library class that manages a collection of books. Each book is an instance
+// of a Book class with properties like title, author, and isAvailable.
+// Tasks:
+// ➢ Implement methods to add books, lend books, and return books.
+// ➢ Use getters/setters to retrieve and update book availability
+// *****Solution******
+// class Book{
+//     constructor(title,author,isAvailable){
+//         this.title = title
+//         this.author = author
+//         this.isAvailable = isAvailable
+//     }
+//     get isAvailable1(){
+//         this.isAvailable
+//     }
+//     set changeIsAvailable(newAvailable){
+//        this.isAvailable = newAvailable;
+//     }
+// }
+// class Library{
+//     constructor(){  
+//         this.item = []
+//     }
+//     addBook(obj){
+//       this.item.push(obj)
+//     }
+//     lendBook(){
+//      this.item = this.item.filter((ele)=>{if(ele.isAvailable =="Yes")  return ele})
+//     }
+//     returnBook(){
+//     let r_book;
+//     r_book = this.item.filter((ele)=>{if(ele.isAvailable=="No") return ele})
+//       return r_book
+//     }
+    
+// }
+// let book1 = new Book("2 State","Chetan Bhagat","Yes")
+// let book2 = new Book("The Idea Of Justice","Amartya Sen","Yes")
+// let book3 = new Book("A Girl To Remember","Abhilash","No")
+// let library = new Library()
+// // book3.changeIsAvailable = "Yes"
+// library.addBook(book1)
+// library.addBook(book2)
+// library.addBook(book3)
+// let a = library.returnBook()
+// library.lendBook()
+// console.log(a)
+// console.log(library)
+// book3.changeIsAvailable = "Yes"
+// console.log(book3)
+
+////////////////////////////////////////////////////////////////////////
+
+// 3.) Create a Task class with properties like id, title, status, and priority.
+// Tasks:
+// ➢ Implement a TaskManager class to manage multiple tasks.
+// ➢ Add methods to filter tasks by priority or status.
+// ➢ Implement a way to mark tasks as complete.
+// *******Solution********
+// class Task{
+//     constructor(id,title,status,priority){
+//         this.id = id
+//         this.title = title
+//         this.status = status
+//         this.priority = priority
+//     }
+// }
+
+// class TaskManager{
+//     constructor(){
+//         this.multiTask = []
+//     }
+//     add(obj){
+//      this.multiTask.push(obj)
+//     }
+//  get filter(){
+//     let notComplted;
+//     notComplted = this.multiTask.filter((ele)=>{
+//       if(ele.status==="Not Completed"){
+//         return ele
+//       }
+//      })
+//      return notComplted
+//     }
+//     set complted(complete){
+//      this.multiTask.forEach((ele)=>{
+//         if(ele.status=="Not Completed"){
+//             ele.status = complete
+//         }
+//      })
+//     }
+// }
+
+// let person1 = new Task(1,"Gym","Completed","High")
+// let person2 = new Task(2,"Reading Book","Not Completed","Low")
+// let person3 = new Task(3,"Yoga","Not Completed","Low")
+// let person4 = new Task(4,"Coding","Completed","High")
+// let manager = new TaskManager()
+// manager.add(person1)
+// manager.add(person2)
+// manager.add(person3)
+// manager.add(person4)
+// console.log(manager)
+// console.log(manager.filter)
+// manager.filter.forEach((ele)=>{
+//     if(ele.status=="Not Completed"){
+//    manager.complted = "Completed"
+//     }
+// })
+// console.log(manager)
+
+////////////////////////////////////////////////////////////////////
+
+// 4.) Create a VideoPlayer class with properties like videoUrl, currentTime, and
+// isPlaying.
+// Tasks:
+// ➢ Implement methods to play, pause, and seek the video.
+// ➢ Add an event system to notify when the video reaches the end.
+// *******Solution*******
+//  class VideoPlayer{
+//     constructor(videoUrl,currentTime,isPlaying){
+//         this.videoUrl = videoUrl
+//         this.currentTime = currentTime
+//         this.isPlaying = isPlaying
+//     }
+//     set play(playing){
+//        if(this.isPlaying=="No"){
+//         this.isPlaying = playing
+//        }
+//     }
+//     set pause(pausing){
+//       if(this.isPlaying=="Yes"){
+//         this.isPlaying = pausing
+//       }
+//     }
+//     set seek(seeking){
+//       if(this.isPlaying=="No"){
+//         this.isPlaying = seeking
+//       }
+//     }
+//  }
+//  let d = new Date()
+// //  console.log(t)
+// //  let vdo = new VideoPlayer( "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",t,"No")
+//  let video = document.querySelector("video")
+//  let play = document.querySelector(".play")
+//  let pause = document.querySelector(".pause")
+//  let seek = document.querySelector(".seek")
+//  let t = video.currentTime
+//  let vdo = new VideoPlayer( "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",t,"No")
+//  video.src=vdo.videoUrl
+//  play.addEventListener("click",(e)=>{
+//     if(vdo.isPlaying=="No"){
+//         vdo.play="Yes"
+//         vdo.currentTime = video.currentTime
+//         video.play()
+//     }
+//  })
+
+//  pause.addEventListener("click",(e)=>{
+//     if(vdo.isPlaying=="Yes"){
+//         vdo.pause="No"
+//         vdo.currentTime = video.currentTime
+//         video.pause()
+//     }
+//  })
+
+//  seek.addEventListener("click",()=>{
+//     if(vdo.isPlaying=="No"){
+//       vdo.seek = "Yes"
+//       vdo.currentTime = video.currentTime
+//       video.play()
+//     }
+//  })
+
+////////////////////////////////////////////////////////////////////////////
+
+// 5.) Design a ChatRoom class where users can join and send messages. Each user
+// should be an instance of a User class.
+// Tasks:
+// ➢ Implement methods to join/leave a room.
+// ➢ Display a history of messages, including the sender's name.
+// *****Solution******
+//  class User{
+//     constructor(name){
+//         this.name = name
+//     }
+//  }
+//  class ChatRoom{
+//     constructor(roomname){
+//      this.roomname = roomname;
+//      this.users = []
+//      this.message = []
+//     }
+//     join(user){
+//      if(!this.users.includes(user)){
+//         this.users.push(user)
+//         console.log(`${user.name} has joined the room.`)
+//      }else{
+//         console.log(`${user.name} is already in the room.`)
+//      }
+//     }
+
+//     leave(user){
+//     const index = this.users.indexOf(user);
+//     if(index!==-1){
+//         this.users.splice(index,1)
+//         console.log(`${user.name} has left the room`)
+//     } else{
+//         console.log(`${user.name} is not in the room`)
+//      }
+//     }
+
+//     sendMessage(user,message){
+//         if(this.users.includes(user)){
+//           this.message.push({sender:user.name,message:message})
+//           console.log(`${user.name}:${message}`)
+//         }else{
+//             console.log(`${user.name} is not in the room.Cannot send message`)
+//         }
+//     }
+
+//     displayMessage(){
+//         if(this.message.length===0){
+//             console.log("No message in the chat room")
+//         } else{
+//             console.log("\nMessage History")
+//             this.message.forEach((entry)=>{
+//                 console.log(`${entry.sender}:${entry.message}`)
+//             })
+//         }
+//     }
+//  }
+//  let abhilash = new User("Abhilash")
+//  let peter = new User("Peter")
+//  let abhi = new User("Abhi")
+//  let chatbox = new ChatRoom("General Room")
+//  chatbox.join(abhilash)
+//  chatbox.join(peter)
+//  chatbox.join(abhi)
+// chatbox.sendMessage(abhilash,"Hello everyone")
+// chatbox.sendMessage(peter,"Hi Alice")
+// chatbox.sendMessage(abhi,"Goodnight")
+// chatbox.displayMessage();
+// chatbox.leave(abhilash)
+// chatbox.displayMessage
+
+//////////////////////////////////////////////////////////////
+//6.) Create a File class with properties like name, size, and content.
+// Tasks:
+// ➢ Implement a Folder class to manage multiple files and subfolders.
+// ➢ Add methods to add files, remove files, and calculate the total size of the folder.
+// ******Solution********
+// class File{
+//     constructor(name,size,content){
+//         this.name = name;
+//         this.size = size;
+//         this.content = content;
+//     }
+// }
+// class Folder{
+//     constructor(){
+//         this.multiFile = []
+//         this.subFolder = []
+//     }
+//     add(obj){
+//        this.multiFile.push(obj)
+//        this.subFolder.push(this.multiFile)
+//     }
+//     remove(obj){
+//     let index = this.multiFile.indexOf(obj)
+//       if(index!==-1){
+//         this.multiFile.splice(index,1)
+//       }
+//     }
+//     totalSize(){
+//      let total = this.multiFile.reduce((acc,ele)=>{
+//         return acc+ele.size
+//      },0)
+//      return total
+//     }
+
+// }
+
+// let file1 = new File("ABC",2,"Development")
+// let file2 = new File("XYZ",4,"Song")
+// let fold = new Folder()
+// fold.add(file1)
+// fold.add(file2)
+// // fold.remove(file1)
+// console.log(fold.totalSize())
+    </script>
+</body>
+</html>
